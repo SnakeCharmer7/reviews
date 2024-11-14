@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reviews</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'reviews/style.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Edit review</h1>
+    </header>
+    <main>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Save">
+            <a href="{% url 'book_detail' pk=object.book.pk %}"><button>Cancel</button></a>
+        </form>
+    </main>
+</body>
+</html>
